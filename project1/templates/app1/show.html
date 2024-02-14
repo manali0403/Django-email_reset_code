@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show form</title>
+</head>
+<body>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>ROLL</th>
+                <th>FNAME</th>
+                <th>LNAME</th>
+                <th>MARK</th>
+                <th>ADD</th>
+                <th>ACTIONS</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {%for obj in form %}
+            <tr>
+                <td>{{obj.roll}}</td>
+                <td>{{obj.fname}}</td>
+                <td>{{obj.lnmae}}</td>
+                <td>{{obj.mark}}</td>
+                <td>{{obj.add}}</td>
+                <td>
+                    <a href="{% url 'update_url' obj.id %}"><button>UPDATE</button></a>
+                    <a href="{% url 'delete_url' obj.id %}"><button>DELETE</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</body>
+</html>
